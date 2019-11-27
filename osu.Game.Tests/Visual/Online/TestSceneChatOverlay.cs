@@ -101,7 +101,7 @@ namespace osu.Game.Tests.Visual.Online
         {
             AddStep("Join channel 1", () => channelManager.JoinChannel(channel1));
             AddStep("Close channel 1", () => clickDrawable(((TestChannelTabItem)chatOverlay.TabMap[channel1]).CloseButton.Child));
-            AddAssert("Current channel is null", () => channelManager.CurrentChannel.Value == null);
+            AddAssert("Selector is visible", () => chatOverlay.SelectionOverlayState == Visibility.Visible);
             AddStep("Join channel 1", () => channelManager.JoinChannel(channel1));
             AddAssert("Current channel is channel 1", () => channelManager.CurrentChannel.Value == channel1);
         }
