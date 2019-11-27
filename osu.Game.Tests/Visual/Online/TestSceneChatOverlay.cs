@@ -104,6 +104,9 @@ namespace osu.Game.Tests.Visual.Online
             AddAssert("Selector is visible", () => chatOverlay.SelectionOverlayState == Visibility.Visible);
             AddStep("Join channel 1", () => channelManager.JoinChannel(channel1));
             AddAssert("Current channel is channel 1", () => channelManager.CurrentChannel.Value == channel1);
+
+            AddStep("Join channel 2", () => channelManager.JoinChannel(channel2));
+            AddAssert("Current channel is channel 1", () => channelManager.CurrentChannel.Value == channel1);
         }
 
         private void clickDrawable(Drawable d)
