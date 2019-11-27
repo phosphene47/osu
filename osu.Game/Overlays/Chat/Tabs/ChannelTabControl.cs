@@ -64,16 +64,18 @@ namespace osu.Game.Overlays.Chat.Tabs
         /// <param name="channel">The channel that is going to be added.</param>
         public void AddChannel(Channel channel)
         {
+            var firstChannel = Items.Count() == 1; // if there is only the channel selector tab ('+' icon)
+
             if (!Items.Contains(channel))
                 AddItem(channel);
 
-            if (Current.Value == null)
+            if (firstChannel)
                 Current.Value = channel;
         }
 
         /// <summary>
         /// Removes a channel from the ChannelTabControl.
-        /// If the selected channel is the one that is beeing removed, the next available channel will be selected.
+        /// If the selected channel is the one that is being removed, the next available channel will be selected.
         /// </summary>
         /// <param name="channel">The channel that is going to be removed.</param>
         public void RemoveChannel(Channel channel)
